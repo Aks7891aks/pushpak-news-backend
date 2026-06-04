@@ -1,0 +1,650 @@
+/* =========================================
+   PUSHPAK NEWS ADMIN PANEL CSS
+========================================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:#f5f7fb;
+  color:#111827;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* =========================================
+   DARK MODE
+========================================= */
+
+body.dark-mode{
+  background:#111827;
+  color:#fff;
+}
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar{
+  width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+  background:#ff3c00;
+  border-radius:20px;
+}
+
+/* =========================================
+   MOBILE MENU BUTTON
+========================================= */
+
+.mobile-menu-btn{
+  position:fixed;
+  top:15px;
+  left:15px;
+  width:45px;
+  height:45px;
+  background:#ff3c00;
+  color:#fff;
+  border-radius:10px;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  cursor:pointer;
+  z-index:2000;
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.sidebar{
+  width:270px;
+  background:#111827;
+  color:#fff;
+  min-height:100vh;
+  padding:25px 20px;
+  position:fixed;
+  left:0;
+  top:0;
+  overflow-y:auto;
+  transition:0.3s;
+  z-index:1000;
+}
+
+.sidebar-logo{
+  font-size:30px;
+  font-weight:700;
+  text-align:center;
+  margin-bottom:40px;
+  color:#fff;
+}
+
+.sidebar ul{
+  list-style:none;
+}
+
+.sidebar ul li{
+  margin-bottom:12px;
+}
+
+.sidebar ul li a{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:15px;
+  border-radius:14px;
+  text-decoration:none;
+  color:#fff;
+  transition:0.3s;
+  font-size:15px;
+  font-weight:500;
+}
+
+.sidebar ul li.active a,
+.sidebar ul li a:hover{
+  background:#ff3c00;
+}
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.main-content{
+  flex:1;
+  margin-left:270px;
+  padding:30px;
+}
+
+/* =========================================
+   TOPBAR
+========================================= */
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  margin-bottom:35px;
+  flex-wrap:wrap;
+}
+
+.topbar-title{
+  font-size:32px;
+  font-weight:700;
+}
+
+.topbar-right{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+.dark-btn{
+  width:45px;
+  height:45px;
+  border:none;
+  border-radius:12px;
+  background:#111827;
+  color:#fff;
+  cursor:pointer;
+  font-size:18px;
+  transition:0.3s;
+}
+
+.dark-btn:hover{
+  background:#ff3c00;
+}
+
+.admin-profile{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  background:#fff;
+  padding:10px 16px;
+  border-radius:15px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+body.dark-mode .admin-profile{
+  background:#1f2937;
+}
+
+.admin-profile img{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+/* =========================================
+   DASHBOARD CARDS
+========================================= */
+
+.dashboard-cards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:25px;
+  margin-bottom:35px;
+}
+
+.card{
+  background:#fff;
+  padding:30px;
+  border-radius:22px;
+  display:flex;
+  align-items:center;
+  gap:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+body.dark-mode .card{
+  background:#1f2937;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+.card-icon{
+  width:70px;
+  height:70px;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:28px;
+}
+
+.red{
+  background:#ef4444;
+}
+
+.blue{
+  background:#2563eb;
+}
+
+.green{
+  background:#10b981;
+}
+
+.orange{
+  background:#f97316;
+}
+
+.card-info h2{
+  font-size:30px;
+  margin-bottom:5px;
+}
+
+.card-info p{
+  color:#6b7280;
+}
+
+body.dark-mode .card-info p{
+  color:#d1d5db;
+}
+
+/* =========================================
+   TABLE SECTION
+========================================= */
+
+.recent-news,
+.table-container{
+  background:#fff;
+  padding:30px;
+  border-radius:25px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  overflow-x:auto;
+}
+
+body.dark-mode .recent-news,
+body.dark-mode .table-container{
+  background:#1f2937;
+}
+
+.section-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  margin-bottom:25px;
+  flex-wrap:wrap;
+}
+
+.section-header h2{
+  font-size:28px;
+}
+
+.section-header button{
+  border:none;
+  background:#ff3c00;
+  color:#fff;
+  padding:12px 22px;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.section-header button:hover{
+  background:#e63300;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:850px;
+}
+
+table thead{
+  background:#111827;
+  color:#fff;
+}
+
+table th{
+  padding:18px;
+  text-align:left;
+}
+
+table td{
+  padding:18px;
+  border-bottom:1px solid #eee;
+}
+
+body.dark-mode table td{
+  border-bottom:1px solid #374151;
+}
+
+table tr:hover{
+  background:#f9fafb;
+}
+
+body.dark-mode table tr:hover{
+  background:#111827;
+}
+
+/* =========================================
+   STATUS
+========================================= */
+
+.status{
+  padding:8px 14px;
+  border-radius:30px;
+  color:#fff;
+  font-size:13px;
+  font-weight:600;
+}
+
+.published{
+  background:#10b981;
+}
+
+.pending{
+  background:#f59e0b;
+}
+
+.draft{
+  background:#ef4444;
+}
+
+/* =========================================
+   FORM SECTION
+========================================= */
+
+.add-news-container,
+.edit-news-container,
+.settings-card{
+  background:#fff;
+  padding:35px;
+  border-radius:25px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+body.dark-mode .add-news-container,
+body.dark-mode .edit-news-container,
+body.dark-mode .settings-card{
+  background:#1f2937;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:25px;
+}
+
+.form-group{
+  display:flex;
+  flex-direction:column;
+}
+
+.form-group.full{
+  grid-column:1 / -1;
+}
+
+.form-group label{
+  margin-bottom:10px;
+  font-weight:600;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+  width:100%;
+  padding:16px;
+  border-radius:14px;
+  border:1px solid #ddd;
+  outline:none;
+  font-size:15px;
+  background:#fff;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea,
+body.dark-mode .form-group select{
+  background:#111827;
+  color:#fff;
+  border:1px solid #374151;
+}
+
+textarea{
+  resize:none;
+}
+
+/* =========================================
+   IMAGE PREVIEW
+========================================= */
+
+.image-preview,
+.logo-preview{
+  width:100%;
+  height:250px;
+  border-radius:20px;
+  overflow:hidden;
+  margin-top:15px;
+  background:#f3f4f6;
+}
+
+.logo-preview{
+  width:120px;
+  height:120px;
+}
+
+.image-preview img,
+.logo-preview img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.publish-btn,
+.update-btn,
+.save-btn,
+.login-btn{
+  width:100%;
+  padding:16px;
+  border:none;
+  border-radius:16px;
+  background:#ff3c00;
+  color:#fff;
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.publish-btn:hover,
+.update-btn:hover,
+.save-btn:hover,
+.login-btn:hover{
+  background:#e63300;
+  transform:translateY(-2px);
+}
+
+/* =========================================
+   LOGIN PAGE
+========================================= */
+
+.login-body{
+  background:
+  linear-gradient(
+    135deg,
+    rgba(0,0,0,0.85),
+    rgba(0,0,0,0.75)
+  ),
+  url("https://images.unsplash.com/photo-1495020689067-958852a7765e?q=80&w=1400&auto=format&fit=crop");
+  background-size:cover;
+  background-position:center;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+
+.login-container{
+  width:100%;
+  max-width:430px;
+}
+
+.login-box{
+  background:rgba(255,255,255,0.1);
+  backdrop-filter:blur(15px);
+  border:1px solid rgba(255,255,255,0.2);
+  border-radius:25px;
+  padding:45px 35px;
+  color:#fff;
+  box-shadow:0 10px 40px rgba(0,0,0,0.3);
+}
+
+.login-logo{
+  text-align:center;
+  font-size:34px;
+  font-weight:700;
+  margin-bottom:25px;
+}
+
+.input-box{
+  position:relative;
+  margin-bottom:25px;
+}
+
+.input-box i{
+  position:absolute;
+  top:50%;
+  left:18px;
+  transform:translateY(-50%);
+  color:#999;
+}
+
+.input-box input{
+  width:100%;
+  padding:16px 18px 16px 50px;
+  border:none;
+  border-radius:14px;
+  outline:none;
+  font-size:15px;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media(max-width:1200px){
+
+  .dashboard-cards{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:991px){
+
+  .sidebar{
+    left:-280px;
+  }
+
+  .sidebar.active{
+    left:0;
+  }
+
+  .mobile-menu-btn{
+    display:flex;
+  }
+
+  .main-content{
+    margin-left:0;
+    padding:90px 20px 30px;
+  }
+
+  .dashboard-cards{
+    grid-template-columns:1fr;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .topbar{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .topbar-title{
+    font-size:26px;
+  }
+
+  .section-header{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .add-news-container,
+  .edit-news-container,
+  .settings-card,
+  .recent-news,
+  .table-container{
+    padding:25px;
+  }
+
+}
+
+@media(max-width:480px){
+
+  .main-content{
+    padding:85px 15px 20px;
+  }
+
+  .sidebar-logo{
+    font-size:24px;
+  }
+
+  .topbar-title{
+    font-size:22px;
+  }
+
+  .card{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .card-info h2{
+    font-size:24px;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select{
+    padding:14px;
+    font-size:14px;
+  }
+
+  .publish-btn,
+  .update-btn,
+  .save-btn,
+  .login-btn{
+    padding:14px;
+    font-size:15px;
+  }
+
+  .login-box{
+    padding:30px 20px;
+  }
+
+}

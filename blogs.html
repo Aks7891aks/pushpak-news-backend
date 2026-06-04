@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Blog Management - Pushpak News</title>
+
+  <link rel="stylesheet" href="admin-style.css">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  >
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+
+  <div class="sidebar">
+
+    <div class="sidebar-logo">
+      Pushpak News
+    </div>
+
+    <ul>
+
+      <li>
+        <a href="dashboard.html">
+          <i class="fa-solid fa-chart-line"></i>
+          Dashboard
+        </a>
+      </li>
+
+      <li>
+        <a href="add-news.html">
+          <i class="fa-solid fa-newspaper"></i>
+          Add News
+        </a>
+      </li>
+
+      <li>
+        <a href="manage-news.html">
+          <i class="fa-solid fa-pen-to-square"></i>
+          Manage News
+        </a>
+      </li>
+
+      <li>
+        <a href="videos.html">
+          <i class="fa-solid fa-video"></i>
+          Videos
+        </a>
+      </li>
+
+      <li class="active">
+        <a href="blogs.html">
+          <i class="fa-solid fa-blog"></i>
+          Blogs
+        </a>
+      </li>
+
+      <li>
+        <a href="categories.html">
+          <i class="fa-solid fa-layer-group"></i>
+          Categories
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          <i class="fa-solid fa-gear"></i>
+          Settings
+        </a>
+      </li>
+
+    </ul>
+
+  </div>
+
+  <!-- MAIN CONTENT -->
+
+  <div class="main-content">
+
+    <!-- TOPBAR -->
+
+    <div class="topbar">
+
+      <div class="topbar-title">
+        Blog Management
+      </div>
+
+      <div class="admin-profile">
+
+        <img
+          src="https://i.pravatar.cc/100"
+          alt="Admin"
+        >
+
+        <span>Admin</span>
+
+      </div>
+
+    </div>
+
+    <!-- ADD BLOG FORM -->
+
+    <div class="add-news-container">
+
+      <form id="blogForm">
+
+        <!-- BLOG TITLE -->
+
+        <div class="form-group">
+
+          <label>
+            Blog Title
+          </label>
+
+          <input
+            type="text"
+            placeholder="Enter Blog Title"
+            required
+          >
+
+        </div>
+
+        <!-- AUTHOR -->
+
+        <div class="form-group">
+
+          <label>
+            Author Name
+          </label>
+
+          <input
+            type="text"
+            placeholder="Enter Author Name"
+            required
+          >
+
+        </div>
+
+        <!-- CATEGORY -->
+
+        <div class="form-group">
+
+          <label>
+            Blog Category
+          </label>
+
+          <select required>
+
+            <option value="">
+              Select Category
+            </option>
+
+            <option>
+              Technology
+            </option>
+
+            <option>
+              Business
+            </option>
+
+            <option>
+              Politics
+            </option>
+
+            <option>
+              Sports
+            </option>
+
+            <option>
+              Entertainment
+            </option>
+
+          </select>
+
+        </div>
+
+        <!-- IMAGE -->
+
+        <div class="form-group">
+
+          <label>
+            Upload Featured Image
+          </label>
+
+          <input
+            type="file"
+            accept="image/*"
+          >
+
+        </div>
+
+        <!-- SHORT DESCRIPTION -->
+
+        <div class="form-group">
+
+          <label>
+            Short Description
+          </label>
+
+          <textarea
+            rows="4"
+            placeholder="Enter Short Description"
+            required
+          ></textarea>
+
+        </div>
+
+        <!-- BLOG CONTENT -->
+
+        <div class="form-group">
+
+          <label>
+            Full Blog Content
+          </label>
+
+          <textarea
+            rows="10"
+            placeholder="Write Full Blog Content"
+            required
+          ></textarea>
+
+        </div>
+
+        <!-- PUBLISH BUTTON -->
+
+        <button
+          type="submit"
+          class="publish-btn"
+        >
+          Publish Blog
+        </button>
+
+      </form>
+
+    </div>
+
+    <!-- BLOG TABLE -->
+
+    <div class="recent-news">
+
+      <div class="section-header">
+
+        <h2>Published Blogs</h2>
+
+        <button>
+          Total Blogs : 3
+        </button>
+
+      </div>
+
+      <table id="blogTable">
+
+        <thead>
+
+          <tr>
+
+            <th>ID</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Category</th>
+            <th>Status</th>
+            <th>Actions</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+
+            <td>001</td>
+
+            <td>
+              Future Of AI Journalism
+            </td>
+
+            <td>
+              Admin
+            </td>
+
+            <td>
+              Technology
+            </td>
+
+            <td>
+              <span class="status published">
+                Published
+              </span>
+            </td>
+
+            <td>
+
+              <button class="edit-btn">
+                <i class="fa-solid fa-pen"></i>
+              </button>
+
+              <button class="delete-btn">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>002</td>
+
+            <td>
+              International Business Growth
+            </td>
+
+            <td>
+              Admin
+            </td>
+
+            <td>
+              Business
+            </td>
+
+            <td>
+              <span class="status pending">
+                Pending
+              </span>
+            </td>
+
+            <td>
+
+              <button class="edit-btn">
+                <i class="fa-solid fa-pen"></i>
+              </button>
+
+              <button class="delete-btn">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>003</td>
+
+            <td>
+              Sports Media Revolution
+            </td>
+
+            <td>
+              Admin
+            </td>
+
+            <td>
+              Sports
+            </td>
+
+            <td>
+              <span class="status draft">
+                Draft
+              </span>
+            </td>
+
+            <td>
+
+              <button class="edit-btn">
+                <i class="fa-solid fa-pen"></i>
+              </button>
+
+              <button class="delete-btn">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+  <script src="admin.js"></script>
+
+  <script>
+
+    /* BLOG FORM */
+
+    const blogForm =
+      document.getElementById("blogForm");
+
+    if(blogForm){
+
+      blogForm.addEventListener("submit",(e)=>{
+
+        e.preventDefault();
+
+        alert("Blog Published Successfully");
+
+        blogForm.reset();
+
+      });
+
+    }
+
+    /* DELETE BLOG */
+
+    const deleteButtons =
+      document.querySelectorAll(".delete-btn");
+
+    deleteButtons.forEach((btn)=>{
+
+      btn.addEventListener("click",()=>{
+
+        if(confirm("Delete this blog?")){
+
+          btn.closest("tr").remove();
+
+        }
+
+      });
+
+    });
+
+    /* EDIT BLOG */
+
+    const editButtons =
+      document.querySelectorAll(".edit-btn");
+
+    editButtons.forEach((btn)=>{
+
+      btn.addEventListener("click",()=>{
+
+        alert("Edit Blog Feature Coming Soon");
+
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>

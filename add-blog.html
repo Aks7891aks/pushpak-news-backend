@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>
+    Add Blog - Pushpak News
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="admin-style.css"
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+
+  <div class="sidebar">
+
+    <div class="sidebar-logo">
+
+      Pushpak News
+
+    </div>
+
+    <ul>
+
+      <li>
+
+        <a href="dashboard.html">
+
+          <i class="fa-solid fa-chart-line"></i>
+
+          Dashboard
+
+        </a>
+
+      </li>
+
+      <li>
+
+        <a href="add-news.html">
+
+          <i class="fa-solid fa-newspaper"></i>
+
+          Add News
+
+        </a>
+
+      </li>
+
+      <li>
+
+        <a href="manage-news.html">
+
+          <i class="fa-solid fa-pen-to-square"></i>
+
+          Manage News
+
+        </a>
+
+      </li>
+
+      <li class="active">
+
+        <a href="add-blog.html">
+
+          <i class="fa-solid fa-blog"></i>
+
+          Add Blog
+
+        </a>
+
+      </li>
+
+    </ul>
+
+  </div>
+
+  <!-- MAIN CONTENT -->
+
+  <div class="main-content">
+
+    <div class="topbar">
+
+      <div class="topbar-title">
+
+        Add Blog
+
+      </div>
+
+    </div>
+
+    <!-- BLOG FORM -->
+
+    <div class="form-container">
+
+      <form id="blogForm">
+
+        <input
+          type="text"
+          id="title"
+          placeholder="Blog Title"
+          required
+        >
+
+        <input
+          type="text"
+          id="author"
+          placeholder="Author Name"
+          required
+        >
+
+        <input
+          type="text"
+          id="image"
+          placeholder="Blog Image URL"
+          required
+        >
+
+        <textarea
+          id="shortDescription"
+          placeholder="Short Description"
+          required
+        ></textarea>
+
+        <textarea
+          id="content"
+          placeholder="Full Blog Content"
+          required
+        ></textarea>
+
+        <button type="submit">
+
+          Publish Blog
+
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    document
+      .getElementById(
+        "blogForm"
+      )
+
+      .addEventListener(
+        "submit",
+
+        async (e)=>{
+
+          e.preventDefault();
+
+          const blogData = {
+
+            title:
+              document.getElementById(
+                "title"
+              ).value,
+
+            author:
+              document.getElementById(
+                "author"
+              ).value,
+
+            image:
+              document.getElementById(
+                "image"
+              ).value,
+
+            shortDescription:
+              document.getElementById(
+                "shortDescription"
+              ).value,
+
+            content:
+              document.getElementById(
+                "content"
+              ).value
+
+          };
+
+          try{
+
+            const response =
+              await fetch(
+
+                "https://pushpak-news-backend.onrender.com/api/blogs",
+
+                {
+
+                  method:"POST",
+
+                  headers:{
+
+                    "Content-Type":
+                      "application/json"
+
+                  },
+
+                  body:JSON.stringify(
+                    blogData
+                  )
+
+                }
+
+              );
+
+            const data =
+              await response.json();
+
+            alert(
+              data.message ||
+              "Blog Published Successfully"
+            );
+
+            document
+              .getElementById(
+                "blogForm"
+              )
+
+              .reset();
+
+          }
+
+          catch(error){
+
+            console.log(error);
+
+          }
+
+        }
+
+      );
+
+  </script>
+
+</body>
+
+</html>

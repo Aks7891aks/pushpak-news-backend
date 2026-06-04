@@ -1,0 +1,705 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>
+    Pushpak News Live TV
+  </title>
+
+  <!-- CSS -->
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  />
+
+  <!-- GOOGLE FONT -->
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- FONT AWESOME -->
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+
+      font-family:'Poppins',sans-serif;
+
+      background:#050505;
+
+      color:#fff;
+
+      overflow-x:hidden;
+
+    }
+
+    /* HEADER */
+
+    header{
+
+      width:100%;
+
+      background:#0d0d0d;
+
+      padding:18px 30px;
+
+      position:sticky;
+
+      top:0;
+
+      z-index:999;
+
+      box-shadow:0 5px 20px rgba(0,0,0,0.4);
+
+    }
+
+    .navbar{
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:space-between;
+
+      max-width:1600px;
+
+      margin:auto;
+
+    }
+
+    .logo{
+
+      font-size:34px;
+
+      font-weight:700;
+
+      color:#ff0000;
+
+    }
+
+    nav ul{
+
+      display:flex;
+
+      list-style:none;
+
+      gap:28px;
+
+    }
+
+    nav ul li a{
+
+      color:#fff;
+
+      text-decoration:none;
+
+      font-weight:600;
+
+      transition:0.3s;
+
+    }
+
+    nav ul li a:hover{
+
+      color:#ff0000;
+
+    }
+
+    /* HERO */
+
+    .hero{
+
+      width:100%;
+
+      padding:30px 20px 50px;
+
+    }
+
+    .hero-container{
+
+      max-width:1700px;
+
+      margin:auto;
+
+    }
+
+    /* LIVE HEADER */
+
+    .live-header{
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:space-between;
+
+      flex-wrap:wrap;
+
+      gap:20px;
+
+      margin-bottom:25px;
+
+    }
+
+    .live-title{
+
+      display:flex;
+
+      align-items:center;
+
+      gap:15px;
+
+      font-size:42px;
+
+      font-weight:700;
+
+    }
+
+    .live-dot{
+
+      width:18px;
+
+      height:18px;
+
+      background:red;
+
+      border-radius:50%;
+
+      animation:pulse 1s infinite;
+
+    }
+
+    @keyframes pulse{
+
+      0%{
+        opacity:1;
+      }
+
+      50%{
+        opacity:0.3;
+      }
+
+      100%{
+        opacity:1;
+      }
+
+    }
+
+    .live-badge{
+
+      background:#ff0000;
+
+      padding:12px 24px;
+
+      border-radius:50px;
+
+      font-size:16px;
+
+      font-weight:700;
+
+      color:#fff;
+
+      box-shadow:0 5px 20px rgba(255,0,0,0.35);
+
+    }
+
+    /* TV GRID */
+
+    .tv-grid{
+
+      display:grid;
+
+      grid-template-columns:3fr 1fr;
+
+      gap:25px;
+
+      align-items:start;
+
+    }
+
+    /* LIVE PLAYER */
+
+    .live-tv-wrapper{
+
+      width:100%;
+
+      border-radius:25px;
+
+      overflow:hidden;
+
+      background:#000;
+
+      box-shadow:0 10px 40px rgba(255,0,0,0.25);
+
+      position:relative;
+
+    }
+
+    .live-tv-wrapper iframe{
+
+      width:100%;
+
+      height:78vh;
+
+      min-height:750px;
+
+      border:none;
+
+    }
+
+    /* BREAKING TICKER */
+
+    .tv-breaking-ticker{
+
+      width:100%;
+
+      background:linear-gradient(
+        90deg,
+        #ff0000,
+        #ff3c00
+      );
+
+      color:#fff;
+
+      padding:16px 0;
+
+      font-size:18px;
+
+      font-weight:700;
+
+      border-top:3px solid #fff;
+
+      border-bottom:3px solid #fff;
+
+    }
+
+    /* SIDEBAR */
+
+    .tv-sidebar{
+
+      display:flex;
+
+      flex-direction:column;
+
+      gap:20px;
+
+    }
+
+    .sidebar-card{
+
+      background:#111;
+
+      padding:25px;
+
+      border-radius:22px;
+
+      box-shadow:0 8px 30px rgba(0,0,0,0.3);
+
+    }
+
+    .sidebar-card h3{
+
+      color:#ff0000;
+
+      margin-bottom:18px;
+
+      font-size:24px;
+
+    }
+
+    .sidebar-card ul{
+
+      display:flex;
+
+      flex-direction:column;
+
+      gap:18px;
+
+    }
+
+    .sidebar-card ul li{
+
+      color:#ddd;
+
+      line-height:1.8;
+
+      border-bottom:1px solid rgba(255,255,255,0.08);
+
+      padding-bottom:12px;
+
+    }
+
+    /* INFO */
+
+    .live-info{
+
+      margin-top:30px;
+
+      background:#111;
+
+      padding:35px;
+
+      border-radius:22px;
+
+      line-height:1.9;
+
+      box-shadow:0 8px 30px rgba(0,0,0,0.3);
+
+    }
+
+    .live-info h2{
+
+      font-size:34px;
+
+      margin-bottom:20px;
+
+      color:#ff0000;
+
+    }
+
+    .live-info p{
+
+      color:#ccc;
+
+      font-size:18px;
+
+    }
+
+    /* FOOTER */
+
+    footer{
+
+      margin-top:50px;
+
+      background:#0d0d0d;
+
+      padding:30px 20px;
+
+      text-align:center;
+
+      color:#aaa;
+
+      font-size:15px;
+
+    }
+
+    /* TABLET */
+
+    @media(max-width:1200px){
+
+      .tv-grid{
+
+        grid-template-columns:1fr;
+
+      }
+
+      .live-tv-wrapper iframe{
+
+        min-height:550px;
+
+      }
+
+    }
+
+    /* MOBILE */
+
+    @media(max-width:768px){
+
+      nav ul{
+
+        gap:15px;
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+      }
+
+      .live-title{
+
+        font-size:28px;
+
+      }
+
+      .live-tv-wrapper iframe{
+
+        height:350px;
+
+        min-height:auto;
+
+      }
+
+      .live-info h2{
+
+        font-size:24px;
+
+      }
+
+      .live-info p{
+
+        font-size:15px;
+
+      }
+
+      .tv-breaking-ticker{
+
+        font-size:14px;
+
+      }
+
+    }
+
+    /* SMALL MOBILE */
+
+    @media(max-width:480px){
+
+      .navbar{
+
+        flex-direction:column;
+
+        gap:15px;
+
+      }
+
+      .logo{
+
+        font-size:26px;
+
+      }
+
+      .live-title{
+
+        font-size:22px;
+
+      }
+
+      .live-tv-wrapper iframe{
+
+        height:230px;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+
+    <div class="navbar">
+
+      <div class="logo">
+
+        Pushpak News
+
+      </div>
+
+      <nav>
+
+        <ul>
+
+          <li><a href="index.html">Home</a></li>
+          <li><a href="world.html">World</a></li>
+          <li><a href="politics.html">Politics</a></li>
+          <li><a href="business.html">Business</a></li>
+          <li><a href="technology.html">Technology</a></li>
+          <li><a href="sports.html">Sports</a></li>
+          <li><a href="entertainment.html">Entertainment</a></li>
+          <li><a href="videos.html">Videos</a></li>
+          <li><a href="live-tv.html">Live TV</a></li>
+
+        </ul>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-container">
+
+      <!-- LIVE HEADER -->
+
+      <div class="live-header">
+
+        <div class="live-title">
+
+          <span class="live-dot"></span>
+
+          PUSHPAK NEWS LIVE TV
+
+        </div>
+
+        <div class="live-badge">
+
+          🔴 LIVE 24x7
+
+        </div>
+
+      </div>
+
+      <!-- TV GRID -->
+
+      <div class="tv-grid">
+
+        <!-- LEFT -->
+
+        <div>
+
+          <!-- LIVE PLAYER -->
+
+          <div class="live-tv-wrapper">
+
+            <iframe
+
+              src="https://www.youtube.com/embed?listType=user_uploads&list=UCylQlzgS26-74ydPkwlKBfQ&autoplay=1&mute=1"
+
+              title="Pushpak News Live TV"
+
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+
+              allowfullscreen
+
+            ></iframe>
+
+          </div>
+
+          <!-- BREAKING TICKER -->
+
+          <div class="tv-breaking-ticker">
+
+            <marquee
+              behavior="scroll"
+              direction="left"
+              scrollamount="8"
+            >
+
+              🔴 BREAKING NEWS • Pushpak News LIVE • International Updates • Sports • Politics • Technology • Marathon Events • Entertainment • Business • भारत की ताज़ा खबरें • Pushpak News TV 24x7 LIVE
+
+            </marquee>
+
+          </div>
+
+        </div>
+
+        <!-- RIGHT SIDEBAR -->
+
+        <div class="tv-sidebar">
+
+          <div class="sidebar-card">
+
+            <h3>
+
+              Breaking Headlines
+
+            </h3>
+
+            <ul>
+
+              <li>🔴 Pushpak News International Coverage</li>
+              <li>🏃 Marathon Running Events Updates</li>
+              <li>🏏 Sports Live Coverage</li>
+              <li>🌍 World Breaking News</li>
+              <li>💼 Business & Market Reports</li>
+              <li>📱 Technology & AI Updates</li>
+
+            </ul>
+
+          </div>
+
+          <div class="sidebar-card">
+
+            <h3>
+
+              Pushpak News TV
+
+            </h3>
+
+            <p
+              style="
+                color:#ccc;
+                line-height:1.9;
+              "
+            >
+
+              Watch Pushpak News Live 24x7 streaming with
+              breaking international coverage, sports,
+              politics, technology, entertainment and
+              marathon event updates.
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- INFO -->
+
+      <div class="live-info">
+
+        <h2>
+
+          Watch Pushpak News Live 24x7
+
+        </h2>
+
+        <p>
+
+          Stay connected with Pushpak News for breaking international news,
+          politics, sports, technology, entertainment, marathon events,
+          live interviews and special coverage from India and around the world.
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    © 2026 Pushpak News — All Rights Reserved
+
+  </footer>
+
+</body>
+
+</html>
+```

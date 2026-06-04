@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>
+    Pushpak News Admin Dashboard
+  </title>
+
+  <!-- CSS -->
+
+  <link
+    rel="stylesheet"
+    href="admin-style.css"
+  />
+
+  <!-- GOOGLE FONT -->
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- FONT AWESOME -->
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
+</head>
+
+<body>
+
+  <!-- MOBILE MENU BUTTON -->
+
+  <div class="mobile-menu-btn" id="mobileMenuBtn">
+
+    <i class="fa-solid fa-bars"></i>
+
+  </div>
+
+  <!-- SIDEBAR -->
+
+  <div class="sidebar" id="sidebar">
+
+    <div class="sidebar-logo">
+
+      Pushpak News
+
+    </div>
+
+    <ul>
+
+      <li class="active">
+
+        <a href="dashboard.html">
+
+          <i class="fa-solid fa-chart-line"></i>
+
+          Dashboard
+
+        </a>
+
+      </li>
+
+      <li>
+
+        <a href="add-news.html">
+
+          <i class="fa-solid fa-newspaper"></i>
+
+          Add News
+
+        </a>
+
+      </li>
+
+      <li>
+
+        <a href="manage-news.html">
+
+          <i class="fa-solid fa-pen-to-square"></i>
+
+          Manage News
+
+        </a>
+
+      </li>
+
+      <li>
+
+        <a href="videos.html">
+
+          <i class="fa-solid fa-video"></i>
+
+          Videos
+
+        </a>
+
+      </li>
+
+      <li>
+
+        <a href="blogs.html">
+
+          <i class="fa-solid fa-blog"></i>
+
+          Blogs
+
+        </a>
+
+      </li>
+
+      <li>
+
+        <a href="categories.html">
+
+          <i class="fa-solid fa-layer-group"></i>
+
+          Categories
+
+        </a>
+
+      </li>
+
+      <li>
+
+        <a href="settings.html">
+
+          <i class="fa-solid fa-gear"></i>
+
+          Settings
+
+        </a>
+
+      </li>
+
+      <li>
+
+        <a href="login.html">
+
+          <i class="fa-solid fa-right-from-bracket"></i>
+
+          Logout
+
+        </a>
+
+      </li>
+
+    </ul>
+
+  </div>
+
+  <!-- MAIN CONTENT -->
+
+  <div class="main-content">
+
+    <!-- TOPBAR -->
+
+    <div class="topbar">
+
+      <div class="topbar-title">
+
+        Admin Dashboard
+
+      </div>
+
+      <div class="topbar-right">
+
+        <button
+          class="dark-btn"
+          id="darkModeBtn"
+        >
+
+          <i class="fa-solid fa-moon"></i>
+
+        </button>
+
+        <div class="admin-profile">
+
+          <img
+            src="https://i.pravatar.cc/100"
+            alt="Admin"
+          >
+
+          <span>
+
+            Admin
+
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- DASHBOARD CARDS -->
+
+    <div class="dashboard-cards">
+
+      <div class="card">
+
+        <div class="card-icon red">
+
+          <i class="fa-solid fa-newspaper"></i>
+
+        </div>
+
+        <div class="card-info">
+
+          <h2>
+
+            120
+
+          </h2>
+
+          <p>
+
+            Total News
+
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="card">
+
+        <div class="card-icon blue">
+
+          <i class="fa-solid fa-eye"></i>
+
+        </div>
+
+        <div class="card-info">
+
+          <h2>
+
+            52K
+
+          </h2>
+
+          <p>
+
+            Total Views
+
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="card">
+
+        <div class="card-icon green">
+
+          <i class="fa-solid fa-users"></i>
+
+        </div>
+
+        <div class="card-info">
+
+          <h2>
+
+            4.5K
+
+          </h2>
+
+          <p>
+
+            Live Visitors
+
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="card">
+
+        <div class="card-icon orange">
+
+          <i class="fa-solid fa-video"></i>
+
+        </div>
+
+        <div class="card-info">
+
+          <h2>
+
+            85
+
+          </h2>
+
+          <p>
+
+            Total Videos
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- RECENT NEWS -->
+
+    <div class="recent-news">
+
+      <div class="section-header">
+
+        <h2>
+
+          Recent News
+
+        </h2>
+
+        <button>
+
+          View All
+
+        </button>
+
+      </div>
+
+      <div class="table-wrapper">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>Title</th>
+              <th>Category</th>
+              <th>Date</th>
+              <th>Status</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            <tr>
+
+              <td>
+                Global Technology Trends 2026
+              </td>
+
+              <td>
+                Technology
+              </td>
+
+              <td>
+                22 May 2026
+              </td>
+
+              <td>
+
+                <span class="status published">
+
+                  Published
+
+                </span>
+
+              </td>
+
+            </tr>
+
+            <tr>
+
+              <td>
+                International Sports Headlines
+              </td>
+
+              <td>
+                Sports
+              </td>
+
+              <td>
+                22 May 2026
+              </td>
+
+              <td>
+
+                <span class="status pending">
+
+                  Pending
+
+                </span>
+
+              </td>
+
+            </tr>
+
+            <tr>
+
+              <td>
+                AI Journalism Future
+              </td>
+
+              <td>
+                Business
+              </td>
+
+              <td>
+                22 May 2026
+              </td>
+
+              <td>
+
+                <span class="status published">
+
+                  Published
+
+                </span>
+
+              </td>
+
+            </tr>
+
+            <tr>
+
+              <td>
+                World Politics Live Update
+              </td>
+
+              <td>
+                Politics
+              </td>
+
+              <td>
+                22 May 2026
+              </td>
+
+              <td>
+
+                <span class="status draft">
+
+                  Draft
+
+                </span>
+
+              </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- JS -->
+
+  <script>
+
+    /* MOBILE SIDEBAR */
+
+    const mobileMenuBtn =
+
+    document.getElementById(
+      "mobileMenuBtn"
+    );
+
+    const sidebar =
+
+    document.getElementById(
+      "sidebar"
+    );
+
+    if(mobileMenuBtn){
+
+      mobileMenuBtn.addEventListener(
+
+        "click",
+
+        ()=>{
+
+          sidebar.classList.toggle(
+            "active"
+          );
+
+        }
+
+      );
+
+    }
+
+    /* DARK MODE */
+
+    const darkModeBtn =
+
+    document.getElementById(
+      "darkModeBtn"
+    );
+
+    if(darkModeBtn){
+
+      darkModeBtn.addEventListener(
+
+        "click",
+
+        ()=>{
+
+          document.body.classList.toggle(
+            "dark-mode"
+          );
+
+        }
+
+      );
+
+    }
+
+  </script>
+
+</body>
+
+</html>

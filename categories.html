@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Categories Management - Pushpak News</title>
+
+  <link rel="stylesheet" href="admin-style.css">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  >
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+
+  <div class="sidebar">
+
+    <div class="sidebar-logo">
+      Pushpak News
+    </div>
+
+    <ul>
+
+      <li>
+        <a href="dashboard.html">
+          <i class="fa-solid fa-chart-line"></i>
+          Dashboard
+        </a>
+      </li>
+
+      <li>
+        <a href="add-news.html">
+          <i class="fa-solid fa-newspaper"></i>
+          Add News
+        </a>
+      </li>
+
+      <li>
+        <a href="manage-news.html">
+          <i class="fa-solid fa-pen-to-square"></i>
+          Manage News
+        </a>
+      </li>
+
+      <li>
+        <a href="videos.html">
+          <i class="fa-solid fa-video"></i>
+          Videos
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          <i class="fa-solid fa-blog"></i>
+          Blogs
+        </a>
+      </li>
+
+      <li class="active">
+        <a href="categories.html">
+          <i class="fa-solid fa-layer-group"></i>
+          Categories
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          <i class="fa-solid fa-gear"></i>
+          Settings
+        </a>
+      </li>
+
+    </ul>
+
+  </div>
+
+  <!-- MAIN CONTENT -->
+
+  <div class="main-content">
+
+    <!-- TOPBAR -->
+
+    <div class="topbar">
+
+      <div class="topbar-title">
+        Categories Management
+      </div>
+
+      <div class="admin-profile">
+
+        <img
+          src="https://i.pravatar.cc/100"
+          alt="Admin"
+        >
+
+        <span>Admin</span>
+
+      </div>
+
+    </div>
+
+    <!-- ADD CATEGORY -->
+
+    <div class="add-news-container">
+
+      <form id="categoryForm">
+
+        <div class="form-group">
+
+          <label>
+            Category Name
+          </label>
+
+          <input
+            type="text"
+            id="categoryInput"
+            placeholder="Enter Category Name"
+            required
+          >
+
+        </div>
+
+        <button
+          type="submit"
+          class="publish-btn"
+        >
+          Add Category
+        </button>
+
+      </form>
+
+    </div>
+
+    <!-- CATEGORY TABLE -->
+
+    <div class="recent-news">
+
+      <div class="section-header">
+
+        <h2>All Categories</h2>
+
+        <button>
+          Total Categories : 6
+        </button>
+
+      </div>
+
+      <table id="categoryTable">
+
+        <thead>
+
+          <tr>
+
+            <th>ID</th>
+            <th>Category Name</th>
+            <th>Status</th>
+            <th>Actions</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+
+            <td>001</td>
+
+            <td>World</td>
+
+            <td>
+              <span class="status published">
+                Active
+              </span>
+            </td>
+
+            <td>
+
+              <button class="edit-btn">
+                <i class="fa-solid fa-pen"></i>
+              </button>
+
+              <button class="delete-btn">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>002</td>
+
+            <td>Politics</td>
+
+            <td>
+              <span class="status published">
+                Active
+              </span>
+            </td>
+
+            <td>
+
+              <button class="edit-btn">
+                <i class="fa-solid fa-pen"></i>
+              </button>
+
+              <button class="delete-btn">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>003</td>
+
+            <td>Business</td>
+
+            <td>
+              <span class="status published">
+                Active
+              </span>
+            </td>
+
+            <td>
+
+              <button class="edit-btn">
+                <i class="fa-solid fa-pen"></i>
+              </button>
+
+              <button class="delete-btn">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>004</td>
+
+            <td>Technology</td>
+
+            <td>
+              <span class="status published">
+                Active
+              </span>
+            </td>
+
+            <td>
+
+              <button class="edit-btn">
+                <i class="fa-solid fa-pen"></i>
+              </button>
+
+              <button class="delete-btn">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+  <script src="admin.js"></script>
+
+  <script>
+
+    /* ADD CATEGORY */
+
+    const categoryForm =
+      document.getElementById("categoryForm");
+
+    const categoryInput =
+      document.getElementById("categoryInput");
+
+    const categoryTable =
+      document.querySelector("#categoryTable tbody");
+
+    let categoryCount = 5;
+
+    categoryForm.addEventListener("submit",(e)=>{
+
+      e.preventDefault();
+
+      const categoryName =
+        categoryInput.value;
+
+      const newRow =
+        document.createElement("tr");
+
+      newRow.innerHTML = `
+
+        <td>00${categoryCount}</td>
+
+        <td>${categoryName}</td>
+
+        <td>
+          <span class="status published">
+            Active
+          </span>
+        </td>
+
+        <td>
+
+          <button class="edit-btn">
+            <i class="fa-solid fa-pen"></i>
+          </button>
+
+          <button class="delete-btn">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+
+        </td>
+
+      `;
+
+      categoryTable.appendChild(newRow);
+
+      categoryInput.value = "";
+
+      categoryCount++;
+
+      alert("Category Added Successfully");
+
+    });
+
+    /* DELETE CATEGORY */
+
+    document.addEventListener("click",(e)=>{
+
+      if(e.target.closest(".delete-btn")){
+
+        if(confirm("Delete this category?")){
+
+          e.target.closest("tr").remove();
+
+        }
+
+      }
+
+    });
+
+    /* EDIT CATEGORY */
+
+    document.addEventListener("click",(e)=>{
+
+      if(e.target.closest(".edit-btn")){
+
+        alert("Edit Category Feature Coming Soon");
+
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Manage Blogs - Pushpak News
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="admin-style.css"
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  >
+
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+
+  <div class="sidebar">
+
+    <div class="sidebar-logo">
+
+      Pushpak News
+
+    </div>
+
+    <ul>
+
+      <li>
+
+        <a href="dashboard.html">
+
+          <i class="fa-solid fa-chart-line"></i>
+
+          Dashboard
+
+        </a>
+
+      </li>
+
+      <li>
+
+        <a href="add-news.html">
+
+          <i class="fa-solid fa-newspaper"></i>
+
+          Add News
+
+        </a>
+
+      </li>
+
+      <li>
+
+        <a href="manage-news.html">
+
+          <i class="fa-solid fa-pen-to-square"></i>
+
+          Manage News
+
+        </a>
+
+      </li>
+
+      <li>
+
+        <a href="add-blog.html">
+
+          <i class="fa-solid fa-blog"></i>
+
+          Add Blog
+
+        </a>
+
+      </li>
+
+      <li class="active">
+
+        <a href="manage-blog.html">
+
+          <i class="fa-solid fa-layer-group"></i>
+
+          Manage Blogs
+
+        </a>
+
+      </li>
+
+    </ul>
+
+  </div>
+
+  <!-- MAIN CONTENT -->
+
+  <div class="main-content">
+
+    <!-- TOPBAR -->
+
+    <div class="topbar">
+
+      <div class="topbar-title">
+
+        Manage Blogs
+
+      </div>
+
+    </div>
+
+    <!-- SEARCH -->
+
+    <div class="manage-tools">
+
+      <input
+        type="text"
+        id="searchBlog"
+        placeholder="Search Blogs..."
+      >
+
+    </div>
+
+    <!-- TABLE -->
+
+    <div class="recent-news">
+
+      <table id="blogTable">
+
+        <thead>
+
+          <tr>
+
+            <th>ID</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody id="manageBlogBody">
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    /* LOAD BLOGS */
+
+    async function loadBlogs(){
+
+      try{
+
+        const response =
+          await fetch(
+            "https://pushpak-news-backend.onrender.com/api/blogs"
+          );
+
+        const data =
+          await response.json();
+
+        const tableBody =
+          document.getElementById(
+            "manageBlogBody"
+          );
+
+        tableBody.innerHTML = "";
+
+        data.blogs.reverse().forEach((item,index)=>{
+
+          tableBody.innerHTML += `
+
+            <tr>
+
+              <td>
+
+                ${index + 1}
+
+              </td>
+
+              <td>
+
+                ${item.title}
+
+              </td>
+
+              <td>
+
+                ${item.author}
+
+              </td>
+
+              <td>
+
+                ${
+                  item.createdAt
+                  ? new Date(
+                      item.createdAt
+                    ).toLocaleDateString()
+                  : "24/05/2026"
+                }
+
+              </td>
+
+              <td>
+
+                <span class="status published">
+
+                  Published
+
+                </span>
+
+              </td>
+
+              <td>
+
+                <button
+                  class="edit-btn"
+                >
+
+                  <i class="fa-solid fa-pen"></i>
+
+                </button>
+
+                <button
+                  class="delete-btn"
+                  onclick="deleteBlog('${item._id}')"
+                >
+
+                  <i class="fa-solid fa-trash"></i>
+
+                </button>
+
+              </td>
+
+            </tr>
+
+          `;
+
+        });
+
+      }
+
+      catch(error){
+
+        console.log(error);
+
+      }
+
+    }
+
+    /* DELETE BLOG */
+
+    async function deleteBlog(id){
+
+      const confirmDelete =
+        confirm(
+          "Delete this blog?"
+        );
+
+      if(!confirmDelete){
+
+        return;
+
+      }
+
+      try{
+
+        await fetch(
+
+          `https://pushpak-news-backend.onrender.com/api/blogs/${id}`,
+
+          {
+
+            method:"DELETE"
+
+          }
+
+        );
+
+        alert(
+          "Blog Deleted Successfully"
+        );
+
+        loadBlogs();
+
+      }
+
+      catch(error){
+
+        console.log(error);
+
+      }
+
+    }
+
+    /* SEARCH BLOG */
+
+    const searchInput =
+      document.getElementById(
+        "searchBlog"
+      );
+
+    searchInput.addEventListener(
+      "keyup",
+      ()=>{
+
+        const filter =
+          searchInput.value.toLowerCase();
+
+        const rows =
+          document.querySelectorAll(
+            "#blogTable tbody tr"
+          );
+
+        rows.forEach((row)=>{
+
+          const title =
+            row.children[1]
+              .innerText
+              .toLowerCase();
+
+          if(title.includes(filter)){
+
+            row.style.display = "";
+
+          }
+
+          else{
+
+            row.style.display = "none";
+
+          }
+
+        });
+
+      }
+    );
+
+    loadBlogs();
+
+  </script>
+
+</body>
+
+</html>
